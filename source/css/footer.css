@@ -34,6 +34,10 @@
       margin-left: auto;
       text-align: center;
       font-size: 0.5rem;
+
+      @media (--tablet) {
+        margin: auto;
+      }
     }
 
     & > *:first-child:not(:only-child) {

@@ -3,6 +3,7 @@
 {{ $options := .Get 2 }}
 {{ $position := .Get 3}}
 {{ $alt := .Get 4}}
+{{ $link := .Get 5 }}
 
 {{ if eq $command "Fit"}}
   {{ .Scratch.Set "image" ($original.Fit $options) }}
@@ -17,7 +18,9 @@
 {{ $image := .Scratch.Get "image" }}
 
 <figure class="{{ with $position }}{{ . }}{{ else -}} left {{- end }}" >
-	<img style="max-width: 100%; width: auto; height: auto; border-radius: 8px;" src="{{ $image.RelPermalink }}" {{ with $alt }} alt="{{ . | plainify }}" {{ end }} width="{{ $image.Width }}" height="{{ $image.Height }}">
+  {{ with $link }}<a href ="{{ . }}" >{{ end }}
+  <img style="max-width: 100%; width: auto; height: auto; border-radius: 8px;" src="{{ $image.RelPermalink }}" {{ with $alt }} alt="{{ . | plainify }}" {{ end }} width="{{ $image.Width }}" height="{{ $image.Height }}">
+  {{ with $link}}</a>{{ end }}
 	{{ with .Inner }}
     <figcaption>
       {{ . }}

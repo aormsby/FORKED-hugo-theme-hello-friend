@@ -14,6 +14,7 @@ If you want to use this theme, I recommend cloning @panr's original repo. :sligh
 
 ## Other Local Improvements
 
+- Projects page layouts for listing and detailing my development work
 - Enhanced RSS feed that displays cover image and provides options to display content summary or full text (Promising PR in progress)
 - Position param (left, center, right) in the imgproc shortcode for image positioning
 - Basic Table of Contents param (auto-generated)

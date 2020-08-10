@@ -1,7 +1,7 @@
 on:
   schedule:
     # - cron:  '0 0 * * 2,4'
-    - cron:  '15 * * * *'
+    - cron:  '*/5 * * * *'
 
 jobs:
   sync_with_upstream:
@@ -9,14 +9,16 @@ jobs:
     name: Sync master with upstream latest
 
     steps:
-    - name: Checkout master
-      uses: actions/checkout@v2
-      with:
-        ref: master
+    # - name: Checkout master
+    #   uses: actions/checkout@v2
+    #   with:
+    #     ref: master
         
-    - name: Pull upstream changes
-      id: sync
-      uses: aormsby/fork-sync-with-upstream-action@v1
-      with:
-        upstream_repository: panr/hugo-theme-hello-friend
-        upstream_branch: master
+    # - name: Pull upstream changes
+    #   id: sync
+    #   uses: aormsby/fork-sync-with-upstream-action@v1
+    #   with:
+    #     upstream_repository: panr/hugo-theme-hello-friend
+    #     upstream_branch: master
+    - name: output time
+      run: echo 

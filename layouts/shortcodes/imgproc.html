@@ -5,25 +5,29 @@
 {{ $alt := .Get 4}}
 {{ $link := .Get 5 }}
 
-{{ if eq $command "Fit"}}
+{{ if eq $command "Fit" }}
   {{ .Scratch.Set "image" ($original.Fit $options) }}
-{{ else if eq $command "Resize"}}
+  {{ else if eq $command "Resize" }}
   {{ .Scratch.Set "image" ($original.Resize $options) }}
-{{ else if eq $command "Fill"}}
+  {{ else if eq $command "Fill" }}
   {{ .Scratch.Set "image" ($original.Fill $options) }}
-{{ else }}
-  {{ errorf "Invalid image processing command: Must be one of Fit, Fill or Resize."}}
+  {{ else }}
+  {{ errorf "Invalid image processing command: Must be one of Fit, Fill or Resize." }}
 {{ end }}
 
 {{ $image := .Scratch.Get "image" }}
 
 <figure class="{{ with $position }}{{ . }}{{ else -}} left {{- end }}" >
   {{ with $link }}<a href ="{{ . }}" >{{ end }}
-  <img style="max-width: 100%; width: auto; height: auto; border-radius: 8px;" src="{{ $image.RelPermalink }}" {{ with $alt }} alt="{{ . | plainify }}" {{ end }} width="{{ $image.Width }}" height="{{ $image.Height }}">
+  <img style="max-width: 100%; width: auto; height: auto; border-radius: 8px;"
+    src="{{ $image.RelPermalink }}" {{ with $alt }} alt="{{ . | plainify }}" {{ end }}
+    width="{{ $image.Width }}" height="{{ $image.Height }}"
+    class="{{ with $position }}{{ . }}{{ else -}} left {{- end }}"
+    />
   {{ with $link}}</a>{{ end }}
 	{{ with .Inner }}
     <figcaption class="{{ with $position }}{{ . }}{{ else -}} left {{- end }}">
       {{ . }}
     </figcaption>
-	{{ end }}
+  {{ end }}
 </figure>

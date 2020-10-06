@@ -8,13 +8,13 @@ jobs:
 
     steps:
     - name: Checkout master
-      uses: actions/checkout@rpull
+      uses: actions/checkout@v2
       with:
         ref: master
         
     - name: Pull upstream changes
       id: sync
-      uses: aormsby/Fork-Sync-With-Upstream-action@master
+      uses: aormsby/Fork-Sync-With-Upstream-action@rpull
       with:
         upstream_repository: panr/hugo-theme-hello-friend
         upstream_branch: master

@@ -8,7 +8,7 @@ jobs:
 
     steps:
     - name: Checkout master
-      uses: actions/checkout@v2
+      uses: actions/checkout@rpull
       with:
         ref: master
         

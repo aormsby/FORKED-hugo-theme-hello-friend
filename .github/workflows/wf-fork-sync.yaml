@@ -16,7 +16,7 @@ jobs:
         
     - name: Pull upstream changes
       id: sync
-      uses: aormsby/Fork-Sync-With-Upstream-action@v1
+      uses: aormsby/Fork-Sync-With-Upstream-action@v2.1
       with:
         upstream_repository: panr/hugo-theme-hello-friend
         upstream_branch: master

@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout master
-      uses: actions/checkout@v2.1
+      uses: actions/checkout@v2
       with:
         ref: master
         
@@ -21,6 +21,7 @@ jobs:
       with:
         upstream_repository: panr/hugo-theme-hello-friend
         upstream_branch: master
+        target_branch: master
 
     - name: Timestamp
       run: date
